@@ -1,17 +1,21 @@
 # cojocarudavid.me
 
-![Build Status](https://img.shields.io/github/actions/workflow/status/cojocaru-david/cojocarudavid.me/ci.yml)
-![License](https://img.shields.io/github/license/cojocaru-david/cojocarudavid.me)
-![Version](https://img.shields.io/github/package-json/v/cojocaru-david/cojocarudavid.me)
+![Build Status](https://img.shields.io/github/actions/workflow/status/cojocaru-david/cojocarudavid.me/ci.yml)  
+![License](https://img.shields.io/github/license/cojocaru-david/cojocarudavid.me)  
+![Version](https://img.shields.io/github/package-json/v/cojocaru-david/cojocarudavid.me)  
 ![Stars](https://img.shields.io/github/stars/cojocaru-david/cojocarudavid.me?style=social)
 
-👋 Hi, I'm **David**, a 17-year-old coder from Romania. 🚀 Passionate about web development with **JavaScript, PHP, and React**. Linux enthusiast automating tasks with Bash.
+> ⚠️ **Disclaimer**: This project was originally developed by [@cojocaru-david](https://github.com/cojocaru-david).  
+> All design, structure, and core logic belong to him.  
+> Modified by [@marco-jj](https://github.com/marco-jj)] to suit personal needs, including the removal of the blog section.
 
 ---
 
 ## 🚀 Project Overview
 
-**cojocarudavid.me** is my **personal portfolio website**, built with **Astro.js** and styled using **Tailwind CSS**. It serves as a hub for my projects, blog posts, and personal updates.
+**cojocarudavid.me** is a personal portfolio website originally created by David, a young developer from Romania passionate about web development and Linux. Built with **Astro.js** and **Tailwind CSS**, it serves as a clean and modern platform for showcasing projects and personal information.
+
+> 🛠️ **Modification Note:** This version has been adapted by [@marco-jj] to focus solely on project presentation — the blog section has been removed for simplicity and relevance.
 
 ![Website Screenshot](.github/image.png)
 
@@ -19,22 +23,21 @@
 
 ## 🌟 Features
 
-✅ **Blazing fast** - Optimized for performance and SEO.  
-🎨 **Modern & responsive** - Tailwind CSS for easy customization.  
-🔒 **Secure & reliable** - Follows best security practices.  
-📱 **Mobile-friendly** - Fully responsive across devices.  
-📝 **Blog support** - Share insights and experiences.
+✅ **Blazing fast** – Optimized for performance and SEO  
+🎨 **Modern & responsive** – Tailwind CSS for sleek UI  
+🔒 **Secure** – Built with best practices  
+📱 **Mobile-friendly** – Responsive across all devices
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **[Astro.js](https://astro.build/)** - Static site generator.
-- **[React.js](https://reactjs.org/)** - Used for components.
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework.
-- **[TypeScript](https://www.typescriptlang.org/)** - Typed JavaScript at scale.
-- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** - Core language.
-- **[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)** - Styles and layouts.
+- [Astro.js](https://astro.build/)
+- [React.js](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 ---
 
@@ -42,88 +45,40 @@
 
 ### Prerequisites
 
-Ensure you have the following installed:
+- [Node.js](https://nodejs.org/)
+- [Git](https://git-scm.com/)
 
-- [Node.js](https://nodejs.org/) and npm.
-- [Git](https://git-scm.com/).
+### Steps
 
-### Installation Steps
-
-1. **Clone the repository:**
-
-   ```sh
-   git clone https://github.com/cojocaru-david/cojocarudavid.me.git
-   ```
-
-2. **Navigate to the project directory:**
-
-   ```sh
-   cd cojocarudavid.me
-   ```
-
-3. **Install dependencies:**
-
-   ```sh
-   npm install
-   ```
-
-4. **Run the development server:**
-   ```sh
-   npm run dev
-   ```
+```sh
+git clone https://github.com/cojocaru-david/cojocarudavid.me.git
+cd cojocarudavid.me
+npm install
+npm run dev
+```
 
 ---
 
 ## 🎯 Usage
 
-### Development Mode
-
-Run the local development server:
-
-```sh
-npm run dev
-```
-
-### Production Build
-
-Generate a production-ready build:
-
-```sh
-npm run build
-```
+- **Development mode:** `npm run dev`
+- **Production build:** `npm run build`
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow the [contributing guidelines](CONTRIBUTING.md) before submitting changes.
+Feel free to contribute, especially if you’re improving upon or extending the original project. Please refer to the [contributing guidelines](CONTRIBUTING.md).
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+Distributed under the **MIT License**. See [LICENSE](LICENSE) for more information.
 
 ---
 
-## 💬 Contact
+## 🙏 Credits
 
-📧 Email: [contact@cojocarudavid.me](mailto:contact@cojocarudavid.me)
-
-### 🌐 Connect with Me
-
-- [LinkedIn](https://www.linkedin.com/in/cojocaru-david)
-- [Blog](https://cojocarudavid.me/blog)
-
----
-
-## ⭐ Show Your Support
-
-If you like this project, give it a ⭐ on GitHub!
-
----
-
-## 🙏 Acknowledgments
-
-- [Astro.js](https://astro.build/)
-- [Tailwind CSS](https://tailwindcss.com/)
+- Original Author: [@cojocaru-david](https://github.com/cojocaru-david)
+- Modifier: [@marco-jj] – for adapting the project and removing the blog section.

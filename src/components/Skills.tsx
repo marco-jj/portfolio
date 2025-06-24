@@ -4,55 +4,61 @@ import { InfiniteScroll } from "./ui/infinite-scroll";
 import { type IconType } from "react-icons";
 import { FaQuestionCircle } from "react-icons/fa";
 import {
-  SiHtml5,
+  SiPostgresql,
+  SiJetbrains,
   SiJavascript,
-  SiCss3,
-  SiPhp,
-  SiAstro,
-  SiTailwindcss,
+  SiPython,
+  SiDocker,
+  SiMacos,
+  SiFlutter,
   SiGit,
-  SiDigitalocean,
-  SiCloudflare,
-  SiNetlify,
+  SiSubversion,
+  SiNestjs,
   SiUbuntu,
-  SiLua,
-  SiGo,
   SiNodedotjs,
-  SiApache,
-  SiNginx,
   SiMysql,
-  SiMongodb,
-  SiDiscord,
-  SiSpotify,
-  SiBrave,
+  SiSpringboot,
+  SiSpring,
+  SiApachetomcat, SiGitlab, SiTypescript,
 } from "react-icons/si";
+import {
+  FaJava,
+} from "react-icons/fa6";
 import { FileCode, LucideAppWindow, Code } from "lucide-react";
 
 const iconMap: { [key: string]: IconType } = {
-  "mdi:language-html5": SiHtml5,
+  // Languages
+  "mdi:language-java": FaJava,
   "mdi:language-javascript": SiJavascript,
-  "mdi:language-css3": SiCss3,
-  "mdi:language-php": SiPhp,
-  "simple-icons:astro": SiAstro,
-  "mdi:tailwind": SiTailwindcss,
-  "mdi:git": SiGit,
-  "mdi:digital-ocean": SiDigitalocean,
-  "cib:cloudflare": SiCloudflare,
-  "cib:netlify": SiNetlify,
-  "mdi:ubuntu": SiUbuntu,
-  "mdi:language-lua": SiLua,
-  "mdi:language-go": SiGo,
+  "mdi:language-typescript": SiTypescript,
+  "mdi:language-python": SiPython,
   "mdi:nodejs": SiNodedotjs,
-  "cib:apache": SiApache,
-  "cib:nginx": SiNginx,
+
+  // Frameworks
+  "mdi:framework-springboot": SiSpringboot,
+  "mdi:framework-spring": SiSpring,
+  "mdi:framework-nestjs": SiNestjs,
+  "mdi:framework-flutter": SiFlutter,
+
+  // Dev Tools
+  "mdi:git": SiGit,
+  "mdi:gitlab": SiGitlab,
+  "mdi:subversion": SiSubversion,
+  "mdi:jet-brains": SiJetbrains,
+
+  // OS
+  "mdi:ubuntu": SiUbuntu,
+  "mdi:macos": SiMacos,
+
+  // DevOps
+  "mdi:docker": SiDocker,
+
+  // Web Servers
+  "cib:tomcat": SiApachetomcat,
+
+  // Databases
   "cib:mysql": SiMysql,
-  "cib:mongodb": SiMongodb,
-  "mdi:discord": SiDiscord,
-  "mdi:spotify": SiSpotify,
-  "cib:brave": SiBrave,
-  "mdi:visual-studio-code": FileCode,
-  "mdi:windows": LucideAppWindow,
-  "mdi:visual-studio": Code,
+  "cib:postgres": SiPostgresql,
 };
 
 const categories = Object.keys(technologies);

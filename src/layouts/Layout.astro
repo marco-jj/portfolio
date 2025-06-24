@@ -2,7 +2,6 @@
 import Link from "@components/Link.astro";
 import { author, defaultMeta } from "@data/socials";
 import "@fontsource-variable/montserrat";
-import PostHog from "../components/posthog.astro";
 import Footer from "@components/Footer.astro";
 import "../styles/global.css";
 import { Icon } from "astro-icon/components";
@@ -35,7 +34,6 @@ const date = pubDate || lastmod || new Date();
 const navigation = [
   { href: "/", text: "Home" },
   { href: "/projects/", text: "Projects" },
-  { href: "/blog/", text: "Blog" },
 ];
 ---
 
@@ -60,13 +58,13 @@ const navigation = [
     <meta property="og:image:alt" content={ogImage.alt} />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="https://cojocarudavid.me" />
+    <meta name="twitter:site" content="https://amedura.be" />
     <meta name="twitter:creator" content={author} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
     <meta name="twitter:image:alt" content={ogImage.alt} />
-    <meta name="twitter:domain" content="cojocarudavid.me" />
+    <meta name="twitter:domain" content="amedura.be" />
     <meta name="theme-color" content="#3B82F6" />
     <meta name="msapplication-TileColor" content="#3B82F6" />
     <meta name="color-scheme" content="light dark" />
@@ -123,7 +121,6 @@ const navigation = [
     />
     <meta name="date" content={date.toISOString()} />
     <meta name="keywords" content={tags.join(", ")} />
-    <PostHog />
     <style>
       .gradient-accent {
         background: linear-gradient(
@@ -288,18 +285,6 @@ const navigation = [
       }
 
       setupEvent();
-    </script>
-
-    <!-- Analytics script -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVK59XQK72"
-    ></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-QVK59XQK72");
     </script>
   </body>
 </html>

@@ -121,6 +121,14 @@ body::-webkit-scrollbar-thumb:hover {
   will-change: transform, opacity;
 }
 
+.rotate-flag {
+  @apply inline-block h-6 w-6 transition-transform duration-500;
+}
+
+.group:hover .rotate-flag {
+  @apply rotate-12;
+}
+
 .tech-badge {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
   will-change: transform, box-shadow;

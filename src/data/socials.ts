@@ -1,11 +1,10 @@
-export const tag: string = "@cojocaru-david";
-export const author: string = "David Cojocaru";
-export const github: string = "https://github.com/cojocaru-david";
+export const author: string = "Marco Amedura";
+export const github: string = "https://github.com/marco-jj";
 
-export const title: string = "David Cojocaru - Junior Software Developer";
+export const title: string = "Marco Amedura - Software Developer";
 export const description: string =
   "I am a self-taught developer who loves to build things for the web. With 5+ years of coding experience, I'm passionate about creating elegant solutions and exploring new technologies. Currently working on exciting projects while remaining open to new opportunities.";
-export const country: string = "Romania";
+export const country: string = "Italy";
 
 export const FooterSocials = [
   {
@@ -15,12 +14,12 @@ export const FooterSocials = [
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/cojocaru-david/",
+    url: "https://www.linkedin.com/in/marco-amedura/",
     icon: "mdi:linkedin",
   },
   {
     name: "Email",
-    url: "mailto:contact@cojocarudavid.me",
+    url: "mailto:marco@amedura.be",
     icon: "mdi:email",
   },
 ];
@@ -40,15 +39,13 @@ export const defaultMeta: Meta = {
   description:
     "Discover the portfolio and blog of David Cojocaru, a 16-year-old software developer and cybersecurity enthusiast from Romania. Explore his expertise in web development, programming languages, and more.",
   keywords: [
-    "david cojocaru",
-    "junior software developer",
-    "junior",
-    "cybersecurity enthusiast",
+    "marco amedura",
+    "software developer",
+    "backend",
     "web development",
     "programming",
     "portfolio",
-    "blog",
-    "romania",
+    "italia",
   ],
   ogImage: {
     src: "/banner.png",
@@ -64,53 +61,42 @@ export interface Category {
 export type Technologies = {
   "Web Development": Category[];
   "Development Tools": Category[];
-  "Hosting and Cloud Services": Category[];
+  "Dev Ops": Category[];
   "Operating Systems": Category[];
-  "Other Programming Languages and Technologies": Category[];
   "Web Servers": Category[];
   Databases: Category[];
-  "Other Software": Category[];
 };
 
 export const technologies: Technologies = {
   "Web Development": [
-    { text: "HTML", logo: "mdi:language-html5" },
+    { text: "Java", logo: "mdi:language-java" },
     { text: "JavaScript", logo: "mdi:language-javascript" },
-    { text: "CSS", logo: "mdi:language-css3" },
-    { text: "PHP", logo: "mdi:language-php" },
-    { text: "Astro", logo: "simple-icons:astro" },
-    { text: "Tailwind CSS", logo: "mdi:tailwind" },
+    { text: "TypeScript", logo: "mdi:language-typescript" },
+    { text: "Python", logo: "mdi:language-python" },
+    { text: "Node.js", logo: "mdi:nodejs" },
+    { text: "Flutter", logo: "mdi:framework-flutter" },
+    { text: "Spring Boot", logo: "mdi:framework-springboot" },
+    { text: "Spring", logo: "mdi:framework-spring" },
+    { text: "NestJS", logo: "mdi:framework-nestjs" },
   ],
   "Development Tools": [
-    { text: "Visual Studio Code", logo: "mdi:visual-studio-code" },
     { text: "Git", logo: "mdi:git" },
+    { text: "Subversion", logo: "mdi:subversion" },
+    { text: "JetBrains", logo: "mdi:jet-brains" },
   ],
-  "Hosting and Cloud Services": [
-    { text: "DigitalOcean", logo: "mdi:digital-ocean" },
-    { text: "Cloudflare", logo: "cib:cloudflare" },
-    { text: "Netlify", logo: "cib:netlify" },
+  "Dev Ops": [
+    { text: "Docker", logo: "mdi:docker" },
+    { text: "GitLab CI/CD", logo: "mdi:gitlab" },
   ],
   "Operating Systems": [
-    { text: "Windows", logo: "mdi:windows" },
     { text: "Ubuntu", logo: "mdi:ubuntu" },
-  ],
-  "Other Programming Languages and Technologies": [
-    { text: "Lua", logo: "mdi:language-lua" },
-    { text: "Golang", logo: "mdi:language-go" },
-    { text: "Node.js", logo: "mdi:nodejs" },
+    { text: "MacOS", logo: "mdi:macos" },
   ],
   "Web Servers": [
-    { text: "Apache", logo: "cib:apache" },
-    { text: "Nginx", logo: "cib:nginx" },
+    { text: "Tomcat", logo: "cib:tomcat" },
   ],
   Databases: [
     { text: "MySQL", logo: "cib:mysql" },
-    { text: "MongoDB", logo: "cib:mongodb" },
-  ],
-  "Other Software": [
-    { text: "Discord", logo: "mdi:discord" },
-    { text: "Spotify", logo: "mdi:spotify" },
-    { text: "Visual Studio", logo: "mdi:visual-studio" },
-    { text: "Brave", logo: "cib:brave" },
+    { text: "PostgreSQL", logo: "cib:postgres" },
   ],
 };

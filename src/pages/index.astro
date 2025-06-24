@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import authorImage from "../assets/me.png";
 import Skills from "@components/Skills";
 import { title, description, country, author } from "../data/socials";
+import "flag-icons/css/flag-icons.min.css";
+import {Icon} from "astro-icon/components";
 ---
 
 <Layout title={title}>
@@ -22,14 +24,14 @@ import { title, description, country, author } from "../data/socials";
       <div class="relative mx-auto max-w-4xl">
         <div class="sm:flex sm:items-center sm:justify-between sm:gap-12">
           <div class="relative group overflow-hidden">
-            <Image
-              src={authorImage}
-              alt={title}
-              loading="eager"
-              width={320}
-              height={320}
-              class="h-auto w-40 sm:w-48 md:w-56 lg:w-64 object-cover bg-transparent"
-            />
+              <Image
+                  src={authorImage}
+                  alt={title}
+                  loading="eager"
+                  width={320}
+                  height={320}
+                  className="w-full h-full object-cover rounded-full"
+              />
           </div>
 
           <div class="mt-8 sm:mt-0 sm:max-w-xl">
@@ -39,26 +41,10 @@ import { title, description, country, author } from "../data/socials";
               {author}
             </h1>
             <div class="mt-4 flex items-center gap-2 animate-slide-right">
-              <span
-                class="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors duration-300"
-              >
                 I'm from
-              </span>
               <span class="inline-flex items-center gap-1 group">
                 {country}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 51.18 38.4"
-                  class="inline-block h-6 w-6 transition-transform duration-500 group-hover:rotate-12"
-                >
-                  <path
-                    d="M17.75 0v38.4H3.03C1.37 38.4 0 37.04 0 35.37V3.03C0 1.36 1.37 0 3.03 0h14.72z"
-                    fill="#002b7f"></path>
-                  <path fill="#fcd116" d="M37.45 0v38.4h-19.7V0h19.7z"></path>
-                  <path
-                    d="M37.45 38.4V0h14.72c1.67 0 3.03 1.36 3.03 3.03v32.33c0 1.67-1.37 3.03-3.03 3.03H37.45v.01z"
-                    fill="#ce1126"></path>
-                </svg>
+                <span class="fi fi-it rotate-flag"></span>
               </span>
             </div>
             <p
@@ -66,6 +52,17 @@ import { title, description, country, author } from "../data/socials";
             >
               {description}
             </p>
+            <button
+                onclick="downloadCV()"
+                id="download-cv"
+                class="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors duration-300"
+                aria-label="Download Cv">
+              <Icon
+                  name="mdi:download"
+                  class="w-5 h-5"
+              />
+              <span>Download CV</span>
+            </button>
           </div>
         </div>
       </div>
@@ -86,3 +83,14 @@ import { title, description, country, author } from "../data/socials";
     </section>
   </main>
 </Layout>
+
+<script is:inline>
+  function downloadCV() {
+    const link = document.createElement('a');
+    link.href = '/public/amedura-cv.pdf';
+    link.download = 'amedura-cv.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>
