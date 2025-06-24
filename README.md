@@ -7,7 +7,7 @@
 
 > ⚠️ **Disclaimer**: This project was originally developed by [@cojocaru-david](https://github.com/cojocaru-david).  
 > All design, structure, and core logic belong to him.  
-> Modified by [@marco-jj](https://github.com/marco-jj)] to suit personal needs, including the removal of the blog section.
+> Modified by [@marco-jj](https://github.com/marco-jj) to suit personal needs, including the removal of the blog section.
 
 ---
 
