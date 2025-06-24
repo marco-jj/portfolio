@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, sharpImageService } from "astro/config";
+import node from '@astrojs/node';
 
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
@@ -18,4 +19,6 @@ export default defineConfig({
   },
   site: "https://cojocarudavid.me",
   integrations: [icon(), sitemap(), react()],
+  output: 'server',
+  adapter: node({ mode: 'standalone' }),
 });
