@@ -87,7 +87,7 @@ import {Icon} from "astro-icon/components";
 <script is:inline>
   function downloadCV() {
     const link = document.createElement('a');
-    link.href = '/public/amedura-cv.pdf';
+    link.href = '/amedura-cv.pdf';
     link.download = 'amedura-cv.pdf';
     document.body.appendChild(link);
     link.click();
