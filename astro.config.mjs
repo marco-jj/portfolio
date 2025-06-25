@@ -17,7 +17,7 @@ export default defineConfig({
 	image: {
 		service: sharpImageService(),
 	},
-	site: "https://cojocarudavid.me",
+	site: "https://portfolio.amedura.me",
 	integrations: [icon(), sitemap(), react()],
 	output: "server",
 	adapter: node({ mode: "standalone" }),
