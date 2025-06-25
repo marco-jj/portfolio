@@ -7,29 +7,29 @@ import fs from "fs";
 import path from "path";
 
 const MontserratRegular = fs.readFileSync(
-  path.resolve("./src/assets/_montserrat_regular.ttf")
+	path.resolve("./src/assets/_montserrat_regular.ttf"),
 );
 const MontserratBold = fs.readFileSync(
-  path.resolve("./src/assets/_montserrat_bold.ttf")
+	path.resolve("./src/assets/_montserrat_bold.ttf"),
 );
 
 const dimensions = {
-  width: 1200,
-  height: 630,
+	width: 1200,
+	height: 630,
 };
 
 interface Props {
-  title: string;
-  pubDate: Date;
-  description: string;
-  tags: string[];
+	title: string;
+	pubDate: Date;
+	description: string;
+	tags: string[];
 }
 
 export async function GET(context: APIContext) {
-  const { title, pubDate, description, tags } = context.props as Props;
-  const date = pubDate.toLocaleDateString("en-US", { dateStyle: "full" });
+	const { title, pubDate, description, tags } = context.props as Props;
+	const date = pubDate.toLocaleDateString("en-US", { dateStyle: "full" });
 
-  const markup = html`
+	const markup = html`
     <div
       tw="bg-neutral-900 flex flex-col w-full h-full rounded-3xl overflow-hidden shadow-lg text-white border border-neutral-700/50 "
     >
@@ -61,56 +61,56 @@ export async function GET(context: APIContext) {
     </div>
   `;
 
-  const svg = await satori(markup, {
-    fonts: [
-      {
-        name: "Montserrat",
-        data: MontserratRegular,
-        weight: 400,
-      },
-      {
-        name: "Montserrat",
-        data: MontserratBold,
-        weight: 700,
-      },
-    ],
-    height: dimensions.height,
-    width: dimensions.width,
-  });
+	const svg = await satori(markup, {
+		fonts: [
+			{
+				name: "Montserrat",
+				data: MontserratRegular,
+				weight: 400,
+			},
+			{
+				name: "Montserrat",
+				data: MontserratBold,
+				weight: 700,
+			},
+		],
+		height: dimensions.height,
+		width: dimensions.width,
+	});
 
-  const image = new Resvg(svg, {
-    fitTo: {
-      mode: "width",
-      value: dimensions.width,
-    },
-  }).render();
+	const image = new Resvg(svg, {
+		fitTo: {
+			mode: "width",
+			value: dimensions.width,
+		},
+	}).render();
 
-  return new Response(image.asPng(), {
-    headers: {
-      "Content-Type": "image/png",
-      "Cache-Control": "public, max-age=31536000, immutable",
-      "Content-Length": image.asPng().length.toString(),
-      "Surrogate-Key": tags.join(" "),
-      "Query-String-Hash": "image",
-      "Cache-Tag": "image",
-      "Keep-Alive": "timeout=5, max=1000",
-      "X-Content-Type-Options": "nosniff",
-    },
-  });
+	return new Response(image.asPng(), {
+		headers: {
+			"Content-Type": "image/png",
+			"Cache-Control": "public, max-age=31536000, immutable",
+			"Content-Length": image.asPng().length.toString(),
+			"Surrogate-Key": tags.join(" "),
+			"Query-String-Hash": "image",
+			"Cache-Tag": "image",
+			"Keep-Alive": "timeout=5, max=1000",
+			"X-Content-Type-Options": "nosniff",
+		},
+	});
 }
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  const paths = posts.map((post) => ({
-    params: {
-      slug: post.id,
-    },
-    props: {
-      title: post.data.title,
-      pubDate: post.data.updatedDate ?? post.data.pubDate,
-      description: post.data.description,
-      tags: post.data.tags,
-    },
-  }));
-  return paths;
+	const posts = await getCollection("blog");
+	const paths = posts.map((post) => ({
+		params: {
+			slug: post.id,
+		},
+		props: {
+			title: post.data.title,
+			pubDate: post.data.updatedDate ?? post.data.pubDate,
+			description: post.data.description,
+			tags: post.data.tags,
+		},
+	}));
+	return paths;
 }

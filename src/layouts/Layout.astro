@@ -7,24 +7,24 @@ import "../styles/global.css";
 import { Icon } from "astro-icon/components";
 
 interface Props {
-  title?: string;
-  description?: string;
-  ogImage?: {
-    src: string;
-    alt: string;
-  };
-  pubDate?: Date;
-  tags?: string[];
-  lastmod?: Date;
+	title?: string;
+	description?: string;
+	ogImage?: {
+		src: string;
+		alt: string;
+	};
+	pubDate?: Date;
+	tags?: string[];
+	lastmod?: Date;
 }
 
 const {
-  title,
-  description = defaultMeta.description,
-  ogImage = defaultMeta.ogImage,
-  pubDate,
-  tags = defaultMeta.keywords,
-  lastmod,
+	title,
+	description = defaultMeta.description,
+	ogImage = defaultMeta.ogImage,
+	pubDate,
+	tags = defaultMeta.keywords,
+	lastmod,
 } = Astro.props;
 
 const ogImageURL = new URL(ogImage.src, Astro.site).href;
@@ -32,21 +32,47 @@ const canonicalURL = new URL(Astro.url).href;
 const date = pubDate || lastmod || new Date();
 
 const navigation = [
-  { href: "/", text: "Home" },
-  { href: "/projects/", text: "Projects" },
+	{ href: "/", text: "Home" },
+	{ href: "/projects/", text: "Projects" },
 ];
 ---
 
 <!doctype html>
 <html
-  lang="en"
-  class="scroll-smooth overflow-x-hidden break-words text-neutral-900 dark:text-neutral-100"
+    lang="en"
+    class="scroll-smooth overflow-x-hidden break-words text-neutral-900 dark:text-neutral-100"
 >
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title || defaultMeta.title}</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{title || defaultMeta.title}</title>
+
+    <!-- CRITICAL: Theme script to prevent FOUC -->
+    <script is:inline>
+        (function () {
+          const theme = (() => {
+            if (
+                typeof localStorage !== "undefined" &&
+                localStorage.getItem("theme")
+            ) {
+              return localStorage.getItem("theme");
+            }
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              return "dark";
+            }
+            return "light";
+          })();
+
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        })();
+        </script>
+
     <link rel="canonical" href={canonicalURL} />
+  {/* ... other meta tags ... */}
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta property="og:type" content="blog" />
@@ -77,35 +103,35 @@ const navigation = [
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
     <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
     <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="/apple-icon-114x114.png"
+        rel="apple-touch-icon"
+        sizes="114x114"
+        href="/apple-icon-114x114.png"
     />
     <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="/apple-icon-120x120.png"
+        rel="apple-touch-icon"
+        sizes="120x120"
+        href="/apple-icon-120x120.png"
     />
     <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="/apple-icon-144x144.png"
+        rel="apple-touch-icon"
+        sizes="144x144"
+        href="/apple-icon-144x144.png"
     />
     <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="/apple-icon-152x152.png"
+        rel="apple-touch-icon"
+        sizes="152x152"
+        href="/apple-icon-152x152.png"
     />
     <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-icon-180x180.png"
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-icon-180x180.png"
     />
     <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="/android-icon-192x192.png"
+        rel="icon"
+        type="image/png"
+        sizes="192x192"
+        href="/android-icon-192x192.png"
     />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
@@ -114,177 +140,162 @@ const navigation = [
     {tags && tags.map((tag) => <meta property="article:tag" content={tag} />)}
     <meta name="author" content={author} />
     <meta
-      name="pubdate"
-      content={pubDate
-        ? pubDate.toISOString()
-        : "Fri Oct 20 2023 03:00:00 GMT+0300 (Eastern European Summer Time)"}
+        name="pubdate"
+        content={pubDate
+            ? pubDate.toISOString()
+            : "Fri Oct 20 2023 03:00:00 GMT+0300 (Eastern European Summer Time)"}
     />
     <meta name="date" content={date.toISOString()} />
     <meta name="keywords" content={tags.join(", ")} />
     <style>
       .gradient-accent {
         background: linear-gradient(
-          135deg,
-          rgba(59, 130, 246, 0) 20%,
-          rgba(59, 130, 246, 0.12) 40%,
-          rgba(255, 255, 255, 0) 70%
+            135deg,
+            rgba(59, 130, 246, 0) 20%,
+            rgba(59, 130, 246, 0.12) 40%,
+            rgba(255, 255, 255, 0) 70%
         );
       }
       .dark .gradient-accent {
         background: linear-gradient(
-          135deg,
-          rgba(59, 130, 246, 0) 20%,
-          rgba(59, 130, 246, 0.06) 40%,
-          rgba(0, 0, 0, 0) 70%
+            135deg,
+            rgba(59, 130, 246, 0) 20%,
+            rgba(59, 130, 246, 0.06) 40%,
+            rgba(0, 0, 0, 0) 70%
         );
       }
+      /* --- NEW: CSS rules to prevent theme toggle flash --- */
+      /* By default (in light mode), hide the sun icon */
+      :root:not(.dark) #sun-icon {
+        display: none;
+      }
+      /* In dark mode, hide the moon icon */
+      .dark #moon-icon {
+        display: none;
+      }
     </style>
-  </head>
-  <body
+</head>
+<body
     class="bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex flex-col items-center justify-center min-h-screen antialiased selection:bg-blue-300 selection:text-neutral-900 dark:selection:bg-blue-600 dark:selection:text-neutral-100 text-base lg:text-lg"
-  >
-    <div class="fixed inset-0 pointer-events-none -z-10 gradient-accent"></div>
+>
+<div class="fixed inset-0 pointer-events-none -z-10 gradient-accent"></div>
 
-    <!-- Navigation -->
-    <header class="sticky top-0 z-10 w-full backdrop-blur-lg">
-      <nav class="py-1 flex items-center justify-center">
-        <ul class="flex justify-center items-center gap-6 text-sm">
-          {
-            navigation.map((item) => (
-              <li>
-                <Link
+<!-- Navigation -->
+<header class="sticky top-0 z-10 w-full backdrop-blur-lg">
+  <nav class="py-1 flex items-center justify-center">
+    <ul class="flex justify-center items-center gap-6 text-sm">
+      {
+        navigation.map((item) => (
+            <li>
+              <Link
                   {...item}
                   addClass="font-bold hover:text-blue-400 transition-colors"
-                />
-              </li>
-            ))
-          }
-          <button
-            id="theme-toggle"
-            class="p-2 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200/80 dark:hover:bg-neutral-800/50 transition-colors"
-            aria-label="Toggle theme"
-          >
-            <Icon
-              id="sun-icon"
-              name="mdi:weather-sunny"
-              class="hidden w-5 h-5"
-            />
-            <Icon id="moon-icon" name="mdi:weather-night" class="w-5 h-5" />
-          </button>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- Skip to content link for accessibility -->
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-20 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-neutral-100 focus:rounded"
-    >
-      Skip to content
-    </a>
-
-    <!-- Main content -->
-    <main
-      class="w-full mx-auto px-4 lg:px-8 max-w-4xl flex flex-col flex-grow py-8 md:py-12 font-sans"
-      id="main-content"
-    >
-      <slot />
-    </main>
-
-    <Footer />
-
-    <!-- Back to top button with theme-adaptive colors -->
-    <button
-      id="back-to-top"
-      class="fixed bottom-6 right-6 z-40 p-2 rounded-full bg-blue-500 dark:bg-blue-700 text-neutral-100 shadow-lg opacity-0 translate-y-8 transition-all duration-300"
-      aria-label="Back to top"
-    >
-      <svg
-        class="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+              />
+            </li>
+        ))
+      }
+      <button
+          id="theme-toggle"
+          class="p-2 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200/80 dark:hover:bg-neutral-800/50 transition-colors"
+          aria-label="Toggle theme"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-      </svg>
-    </button>
+        <!-- UPDATED: Removed the 'hidden' class from the sun icon -->
+        <Icon
+            id="sun-icon"
+            name="mdi:weather-sunny"
+            class="w-5 h-5"
+        />
+        <Icon id="moon-icon" name="mdi:weather-night" class="w-5 h-5" />
+      </button>
+    </ul>
+  </nav>
+</header>
 
-    <script is:inline>
-      const savedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      let isDark = savedTheme ? savedTheme === "dark" : prefersDark;
+<!-- Skip to content link for accessibility -->
+<a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-20 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-neutral-100 focus:rounded"
+>
+  Skip to content
+</a>
 
-      const updateTheme = (isDark) => {
-        document.documentElement.classList.toggle("dark", isDark);
-        const sunIcons = [
-          document.getElementById("sun-icon"),
-          document.getElementById("mobile-sun-icon"),
-        ];
-        const moonIcons = [
-          document.getElementById("moon-icon"),
-          document.getElementById("mobile-moon-icon"),
-        ];
-        sunIcons.forEach((icon) => icon?.classList.toggle("hidden", !isDark));
-        moonIcons.forEach((icon) => icon?.classList.toggle("hidden", isDark));
-        const themeLabel = document.getElementById("theme-label");
-        if (themeLabel)
-          themeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-      };
+<!-- Main content -->
+<main
+    class="w-full mx-auto px-4 lg:px-8 max-w-4xl flex flex-col flex-grow py-8 md:py-12 font-sans"
+    id="main-content"
+>
+  <slot />
+</main>
 
-      function setupEvent() {
-        document
-          .getElementById("theme-toggle")
-          .addEventListener("click", () => {
-            const isDark = document.documentElement.classList.contains("dark");
-            updateTheme(!isDark);
-          });
+<Footer />
+
+<!-- Back to top button with theme-adaptive colors -->
+<button
+    id="back-to-top"
+    class="fixed bottom-6 right-6 z-40 p-2 rounded-full bg-blue-500 dark:bg-blue-700 text-neutral-100 shadow-lg opacity-0 translate-y-8 transition-all duration-300"
+    aria-label="Back to top"
+>
+  <svg
+      class="w-5 h-5"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+<script is:inline>
+  // --- UPDATED & SIMPLIFIED: Theme Toggling Logic ---
+  const setupThemeToggle = () => {
+    const themeToggle = document.getElementById("theme-toggle");
+    if (!themeToggle) return;
+
+    themeToggle.addEventListener("click", () => {
+      // 1. Toggle the .dark class on the <html> element.
+      //    The .toggle() method returns `true` if the class was added, `false` if removed.
+      const isDark = document.documentElement.classList.toggle("dark");
+
+      // 2. Save the new theme preference to localStorage.
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  };
+
+  // --- Back to Top Button Logic (Unchanged) ---
+  const setupBackToTop = () => {
+    const backToTopButton = document.getElementById("back-to-top");
+    if (!backToTopButton) return;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add("opacity-100", "translate-y-0");
+        backToTopButton.classList.remove("opacity-0", "translate-y-8");
+      } else {
+        backToTopButton.classList.add("opacity-0", "translate-y-8");
+        backToTopButton.classList.remove("opacity-100", "translate-y-0");
       }
+    });
 
-      updateTheme(isDark);
-      document.addEventListener("astro:after-swap", () => {
-        isDark = savedTheme ? savedTheme === "dark" : prefersDark;
-        updateTheme(isDark);
-        setupEvent();
-      });
+    backToTopButton.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  };
 
-      const progressBar = document.getElementById("progress-bar");
-      if (progressBar) {
-        window.addEventListener("scroll", () => {
-          const scrollTop =
-            document.documentElement.scrollTop || document.body.scrollTop;
-          const scrollHeight =
-            document.documentElement.scrollHeight -
-            document.documentElement.clientHeight;
-          const scrolled = (scrollTop / scrollHeight) * 100;
-          progressBar.style.width = scrolled + "%";
-        });
-      }
+  // --- Initial Setup ---
+  setupThemeToggle();
+  setupBackToTop();
 
-      const backToTopButton = document.getElementById("back-to-top");
-      if (backToTopButton) {
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 300) {
-            backToTopButton.classList.replace("opacity-0", "opacity-100");
-            backToTopButton.classList.replace("translate-y-8", "translate-y-0");
-          } else {
-            backToTopButton.classList.replace("opacity-100", "opacity-0");
-            backToTopButton.classList.replace("translate-y-0", "translate-y-8");
-          }
-        });
-        backToTopButton.addEventListener("click", () => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      }
-
-      setupEvent();
-    </script>
-  </body>
+  // --- Astro View Transitions Support ---
+  // Re-run setup functions after a page transition.
+  document.addEventListener("astro:after-swap", () => {
+    setupThemeToggle();
+    setupBackToTop();
+  });
+</script>
+</body>
 </html>

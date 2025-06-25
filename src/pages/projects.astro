@@ -5,37 +5,37 @@ import data from "@data/contributions.json";
 import ProjectCard from "@components/ProjectCard.astro";
 
 interface Project {
-  name: string;
-  description: string;
-  stars: number;
-  role: "author" | "contributor" | "maintainer";
-  url: string;
-  languages: string[];
-  website?: string;
+	name: string;
+	description: string;
+	stars: number;
+	role: "author" | "contributor" | "maintainer";
+	url: string;
+	languages: string[];
+	website?: string;
 }
 
 const openSourceContributions = data as Project[];
 
 openSourceContributions.sort((a, b) => {
-  if (a.role === "maintainer" && b.role !== "maintainer") {
-    return -1;
-  }
-  if (a.role === "maintainer" && b.role === "maintainer") {
-    return a.stars > b.stars ? -1 : 1;
-  }
-  if (a.role === "author" && b.role === "author") {
-    return a.stars > b.stars ? -1 : 1;
-  }
-  if (a.role === "author" && b.role !== "author") {
-    return -1;
-  }
-  return 0;
+	if (a.role === "maintainer" && b.role !== "maintainer") {
+		return -1;
+	}
+	if (a.role === "maintainer" && b.role === "maintainer") {
+		return a.stars > b.stars ? -1 : 1;
+	}
+	if (a.role === "author" && b.role === "author") {
+		return a.stars > b.stars ? -1 : 1;
+	}
+	if (a.role === "author" && b.role !== "author") {
+		return -1;
+	}
+	return 0;
 });
 
 const description =
-    "A collection of backend-focused projects showcasing my skills in API design, data management, " +
-    "and system integration. Built with the languages and frameworks I use, alongside Docker, " +
-    "following clean architecture and best practices.";
+	"A collection of backend-focused projects showcasing my skills in API design, data management, " +
+	"and system integration. Built with the languages and frameworks I use, alongside Docker, " +
+	"following clean architecture and best practices.";
 ---
 
 <AppLayout

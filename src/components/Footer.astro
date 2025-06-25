@@ -4,20 +4,20 @@ import { FooterSocials } from "@data/socials";
 
 let factData = { fact: "Loading a purr-fect fact..." };
 try {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout to prevent long loading
+	const controller = new AbortController();
+	const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout to prevent long loading
 
-  const factResponse = await fetch("https://catfact.ninja/fact", {
-    headers: { Accept: "application/json" },
-    signal: controller.signal,
-  });
+	const factResponse = await fetch("https://catfact.ninja/fact", {
+		headers: { Accept: "application/json" },
+		signal: controller.signal,
+	});
 
-  clearTimeout(timeoutId);
-  if (factResponse.ok) {
-    factData = await factResponse.json();
-  }
+	clearTimeout(timeoutId);
+	if (factResponse.ok) {
+		factData = await factResponse.json();
+	}
 } catch (error) {
-  console.error("Failed to fetch cat fact:", error);
+	console.error("Failed to fetch cat fact:", error);
 }
 ---
 

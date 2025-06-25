@@ -1,12 +1,10 @@
 [
-  {
-    "name": "not-ready-yet",
-    "stars": -1,
-    "url": "https://github.com/marco-jj/not-ready-yet.me",
-    "description": "lore ipso sum",
-    "languages": [
-      "Java"
-    ],
-    "role": "author"
-  }
+	{
+		"name": "not-ready-yet",
+		"stars": -1,
+		"url": "https://github.com/marco-jj/not-ready-yet.me",
+		"description": "lore ipso sum",
+		"languages": ["Java"],
+		"role": "author"
+	}
 ]

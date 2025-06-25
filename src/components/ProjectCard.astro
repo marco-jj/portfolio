@@ -4,33 +4,33 @@ import { Icon } from "astro-icon/components";
 import { getGitHubStars } from "../utils/github";
 
 interface Props {
-  name: string;
-  role: "author" | "contributor" | "maintainer";
-  url: string;
-  description: string | null;
-  languages: string[];
-  stars: number;
-  website: string | null;
+	name: string;
+	role: "author" | "contributor" | "maintainer";
+	url: string;
+	description: string | null;
+	languages: string[];
+	stars: number;
+	website: string | null;
 }
 
 const colors = {
-  maintainer: "gradient-pink",
-  author: "gradient-indigo",
-  contributor: "green",
+	maintainer: "gradient-pink",
+	author: "gradient-indigo",
+	contributor: "green",
 } as const;
 
 const { name, role, url, description, languages, website } = Astro.props;
 
 const getRepoPath = (githubUrl: string) => {
-  try {
-    const urlObj = new URL(githubUrl);
-    if (urlObj.hostname === "github.com") {
-      return urlObj.pathname.substring(1);
-    }
-  } catch (e) {
-    console.error("Invalid URL:", githubUrl);
-  }
-  return "";
+	try {
+		const urlObj = new URL(githubUrl);
+		if (urlObj.hostname === "github.com") {
+			return urlObj.pathname.substring(1);
+		}
+	} catch (e) {
+		console.error("Invalid URL:", githubUrl);
+	}
+	return "";
 };
 
 const repoPath = getRepoPath(url);
@@ -39,14 +39,14 @@ let loading = true;
 let error = false;
 
 try {
-  if (repoPath) {
-    stars = await getGitHubStars(repoPath);
-  }
-  loading = false;
+	if (repoPath) {
+		stars = await getGitHubStars(repoPath);
+	}
+	loading = false;
 } catch (e) {
-  console.error("Error fetching stars:", e);
-  loading = false;
-  error = true;
+	console.error("Error fetching stars:", e);
+	loading = false;
+	error = true;
 }
 ---
 
