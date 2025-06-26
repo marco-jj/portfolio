@@ -49,8 +49,7 @@ import { Icon } from "astro-icon/components";
             </div>
             <p
               class="py-4 text-neutral-600 dark:text-neutral-400 text-md animate-fade-up"
-            >
-              {description}
+              set:html={description}>
             </p>
             <button
                 onclick="downloadCV()"

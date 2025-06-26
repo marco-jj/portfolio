@@ -3,7 +3,11 @@ export const github: string = "https://github.com/marco-jj";
 
 export const title: string = "Marco Amedura - Software Developer";
 export const description: string =
-	"I am a self-taught developer who loves to build things for the web. With 5+ years of coding experience, I'm passionate about creating elegant solutions and exploring new technologies. Currently working on exciting projects while remaining open to new opportunities.";
+    "Hi, I’m Marco Amedura — a <strong>backend developer</strong> focused on building solid, <strong>enterprise-grade web applications</strong>. " +
+    "I specialize in <strong>Java (21)</strong>, <strong>Spring Boot</strong>, and relational databases like <strong>MySQL</strong> and <strong>PostgreSQL</strong>. " +
+    "I’ve built secure <strong>REST APIs</strong>, deployed with <strong>Docker</strong>, and automated with <strong>GitLab CI</strong>. " +
+    "I’ve also worked with <strong>NestJS</strong>, <strong>Prisma</strong>, and <strong>Flutter</strong>, expanding into full-stack and mobile. " +
+    "Curious by nature, I’m always learning — currently exploring <strong>Scala</strong>, <strong>Python</strong>, and <strong>TypeScript</strong>."
 export const country: string = "Italy";
 
 export const FooterSocials = [
