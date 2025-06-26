@@ -174,63 +174,12 @@ const navigation = [
         display: none;
       }
     </style>
-    <!-- Matomo -->
-    <script>
-      var _paq = window._paq = window._paq || [];
-      // Enable consent mode
-      _paq.push(["requireConsent"]);
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-      _paq.push(["setCookieDomain", "*.amedura.be"]);
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="//matomo.amedura.be/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '1']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-      })();
-      // Consent management
-      const banner = document.getElementById("cookie-banner");
-      const acceptBtn = document.getElementById("cookie-accept");
-      const declineBtn = document.getElementById("cookie-decline");
-
-      const showBanner = () => banner.classList.remove("hidden");
-      const hideBanner = () => banner.classList.add("hidden");
-
-      if (!localStorage.getItem("cookie_consent")) {
-        showBanner();
-      }
-
-      acceptBtn?.addEventListener("click", () => {
-        _paq.push(["rememberConsentGiven"]);
-        localStorage.setItem("cookie_consent", "accepted");
-        hideBanner();
-      });
-
-      declineBtn?.addEventListener("click", () => {
-        localStorage.setItem("cookie_consent", "declined");
-        hideBanner();
-      });
-    </script>
-    <noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="//matomo.amedura.be/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-    <!-- End Matomo Code -->
+    <script defer data-domain="amedura.be" src="http://analytics.amedura.be/js/script.js"></script>
 
 </head>
 <body
     class="bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 flex flex-col items-center justify-center min-h-screen antialiased selection:bg-blue-300 selection:text-neutral-900 dark:selection:bg-blue-600 dark:selection:text-neutral-100 text-base lg:text-lg"
 >
-<!-- Cookie Consent Banner -->
-<div id="cookie-banner"
-     class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-fit w-full sm:max-w-xl rounded-full bg-white dark:bg-neutral-800 text-sm text-neutral-900 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-700 px-4 py-2 shadow-lg flex flex-row items-center gap-4 transition-all duration-300 hidden">
-
-  <span class="whitespace-wrap">If you choose to accept, this website uses cookies for analytics purpose.</span>
-
-  <div class="flex gap-2 flex-shrink-0 ml-auto">
-    <button id="cookie-accept" class="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-full">Accept</button>
-    <button id="cookie-decline" class="px-4 py-1 bg-red-500 hover:bg-red-600 text-white rounded-full">Decline</button>
-  </div>
 </div>
 <div class="fixed inset-0 pointer-events-none -z-10 gradient-accent"></div>
 
